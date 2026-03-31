@@ -1,6 +1,5 @@
 'use client';
 
-import lottie from 'lottie-web';
 import { useEffect, useRef } from 'react';
 
 import { useIsMobile } from '@/hooks/useIsMobile';
@@ -12,17 +11,31 @@ export const Options = () => {
   const isMobile = useIsMobile(768);
 
   useEffect(() => {
-    const animationContainer = isMobile ? mobileAnimationContainer.current : desktopAnimationContainer.current;
+    let animation: { destroy: () => void } | undefined;
 
-    if (animationContainer) {
-      lottie.loadAnimation({
+    const loadAnimation = async () => {
+      const animationContainer = isMobile ? mobileAnimationContainer.current : desktopAnimationContainer.current;
+
+      if (!animationContainer) {
+        return;
+      }
+
+      const lottie = (await import('lottie-web')).default;
+
+      animation = lottie.loadAnimation({
         container: animationContainer,
         renderer: 'svg',
         loop: true,
         autoplay: true,
         animationData: constructionAnimation,
       });
-    }
+    };
+
+    loadAnimation();
+
+    return () => {
+      animation?.destroy();
+    };
   }, [isMobile]);
 
   return (

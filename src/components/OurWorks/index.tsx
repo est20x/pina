@@ -1,6 +1,6 @@
 'use client';
 
-import Slider from 'react-slick';
+import dynamic from 'next/dynamic';
 
 import '../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../node_modules/slick-carousel/slick/slick-theme.css';
@@ -13,6 +13,8 @@ import photo4 from '../../../assets/4.jpg';
 import photo5 from '../../../assets/5.jpg';
 import photo6 from '../../../assets/6.jpg';
 import photo7 from '../../../assets/7.jpg';
+
+const Slider = dynamic(() => import('react-slick'), { ssr: false });
 
 export const OurWorks = () => {
   const photos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7];

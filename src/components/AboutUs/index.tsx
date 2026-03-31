@@ -1,6 +1,5 @@
 'use client';
 
-import lottie from 'lottie-web';
 import { useEffect, useRef } from 'react';
 
 import teamAnimation from '../../../assets/icons/team.json';
@@ -9,15 +8,29 @@ export const AboutUs = () => {
   const animationContainer = useRef(null);
 
   useEffect(() => {
-    if (animationContainer.current) {
-      lottie.loadAnimation({
+    let animation: { destroy: () => void } | undefined;
+
+    const loadAnimation = async () => {
+      if (!animationContainer.current) {
+        return;
+      }
+
+      const lottie = (await import('lottie-web')).default;
+
+      animation = lottie.loadAnimation({
         container: animationContainer.current,
         renderer: 'svg',
         loop: true,
         autoplay: true,
         animationData: teamAnimation,
       });
-    }
+    };
+
+    loadAnimation();
+
+    return () => {
+      animation?.destroy();
+    };
   }, []);
 
   return (
