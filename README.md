@@ -2,23 +2,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Deployment
 
-This repo includes a GitHub Actions workflow at `.github/workflows/deploy-pages.yml` that deploys the app to GitHub Pages on every push to `main`.
+Deploy this project directly from the Vercel dashboard.
 
-This deployment uses a static Next.js export. GitHub Pages cannot run Next.js API routes, so the contact form must submit to an external HTTP endpoint.
+Required Vercel environment variables:
 
-Required GitHub repository secret:
-
-- `NEXT_PUBLIC_FORM_ENDPOINT`
-
-The workflow builds the site with `BASE_PATH=/<repo-name>`, which matches the default GitHub Pages project URL format:
-
-```
-https://<username>.github.io/<repo-name>/
-```
-
-If you later switch to a custom domain, change the `BASE_PATH` value in the workflow to an empty string.
-
-The external form endpoint must accept `POST` requests with JSON and allow CORS from your GitHub Pages domain.
+- `TELEGRAM_BOT_TOKEN`
+- `TELEGRAM_CHAT_ID`
 
 ## Getting Started
 
@@ -49,6 +38,6 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on GitHub Pages
+## Deploy on Vercel
 
-Enable GitHub Pages in the repository settings and choose `GitHub Actions` as the source.
+Link the repository to your Vercel project in the Vercel dashboard and add the required environment variables there.
