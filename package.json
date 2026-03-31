@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css}\" package.json README.md next.config.ts .env.example \".github/**/*.{yml,yaml}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,css}\" package.json README.md next.config.ts .env.example \".github/**/*.{yml,yaml}\""
+    "format": "prettier --no-error-on-unmatched-pattern --write \"src/**/*.{ts,tsx,js,jsx,css}\" package.json README.md next.config.ts .env.example \".github/**/*.{yml,yaml}\"",
+    "format:check": "prettier --no-error-on-unmatched-pattern --check \"src/**/*.{ts,tsx,js,jsx,css}\" package.json README.md next.config.ts .env.example \".github/**/*.{yml,yaml}\""
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "3.5.4",
