@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-slide {
+  animation: slide 2s linear infinite;
+}
+
+.slick-slider .slick-dots button:before {
+  font-size: 0.7rem;
+  color: #8f8e99;
+}
+
+.slick-slider .slick-dots li.slick-active button::before {
+  font-size: 1rem;
+  color: white;
+}
+
+.slick-slider .slick-dots {
+  bottom: -54px;
+}
+
+.slick-slider .slick-dots li {
+  margin: 0 0.3rem;
+}
