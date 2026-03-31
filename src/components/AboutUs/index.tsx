@@ -34,7 +34,10 @@ export const AboutUs = () => {
   }, []);
 
   return (
-    <section id="about-us" className="flex flex-col items-center md:flex-row md:justify-center mt-8 w-full max-w-[1200px] mx-auto">
+    <section
+      id="about-us"
+      className="flex flex-col items-center md:flex-row md:justify-center mt-8 w-full max-w-[1200px] mx-auto"
+    >
       <div className="text-center md:text-left md:w-1/2 flex flex-col items-center md:items-start">
         <h1 className="text-5xl max-md:text-3xl font-bold text-orange mb-4 relative border-b-4 border-orange pb-2">
           Про нас
@@ -45,8 +48,8 @@ export const AboutUs = () => {
           технологіями утеплення, адаптованими до європейських стандартів.
         </p>
         <p className="text-lg text-black">
-          До 2022 року працювали на об'єктах у Чехії та Німеччині, звідки перейняли передові техніки та обладнання для
-          утеплення поліуретаном.
+          До 2022 року працювали на об&apos;єктах у Чехії та Німеччині, звідки перейняли передові техніки та обладнання
+          для утеплення поліуретаном.
         </p>
       </div>
       <div className="md:w-1/2 md:ml-8 flex justify-center mt-6 md:mt-0 w-[400px]" ref={animationContainer}></div>

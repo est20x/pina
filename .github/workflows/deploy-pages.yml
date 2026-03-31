@@ -38,6 +38,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Check formatting
+        run: yarn format:check
+
       - name: Build static export
         env:
           BASE_PATH: /${{ github.event.repository.name }}

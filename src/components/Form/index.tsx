@@ -38,7 +38,7 @@ export const ContactForm: React.FC = () => {
       } else {
         setError('Не вдалося надіслати форму. Спробуйте пізніше.');
       }
-    } catch (err) {
+    } catch {
       setError('Не вдалося надіслати форму. Спробуйте пізніше.');
     }
   };
@@ -53,7 +53,7 @@ export const ContactForm: React.FC = () => {
         <Logo className="w-32 h-32 mb-6 mx-auto rounded-full" />
         <h2 className="text-black text-3xl font-bold mb-6 text-center">Залиште свою заявку</h2>
 
-        <p className="text-black mb-6 text-center text-sm">Наш спеціаліст зв'яжеться з вами найближчим часом.</p>
+        <p className="text-black mb-6 text-center text-sm">Наш спеціаліст зв&apos;яжеться з вами найближчим часом.</p>
 
         {!submitted ? (
           <form className="space-y-6 flex flex-col items-center" onSubmit={handleSubmit}>
@@ -81,7 +81,7 @@ export const ContactForm: React.FC = () => {
           </form>
         ) : (
           <p className="text-black text-lg text-center mt-4">
-            Дякуємо за відправлення заявки! Ми зв'яжемося з вами найближчим часом.
+            Дякуємо за відправлення заявки! Ми зв&apos;яжемося з вами найближчим часом.
           </p>
         )}
 

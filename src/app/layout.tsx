@@ -1,4 +1,5 @@
 import { Metadata } from 'next/dist/lib/metadata/types/metadata-interface';
+import Script from 'next/script';
 
 import '../styles/globals.css';
 
@@ -22,7 +23,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         {/* Google Tag Manager */}
-        <script
+        <Script
+          id="google-tag-manager"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

@@ -1,6 +1,6 @@
 export const footerItems = [
-    { link: '#price', title: 'Ціни' },
-    { link: '#about-us', title: 'Про нас' },
-    { link: '#our-works', title: 'Наші роботи' },
-    { link: '#contacts', title: 'Контакти' },
+  { link: '#price', title: 'Ціни' },
+  { link: '#about-us', title: 'Про нас' },
+  { link: '#our-works', title: 'Наші роботи' },
+  { link: '#contacts', title: 'Контакти' },
 ];
