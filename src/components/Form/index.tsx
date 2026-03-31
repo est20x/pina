@@ -6,6 +6,7 @@ import Logo from '../../../assets/logo.svg';
 import { PhoneButton } from '../Intro/PhoneButton';
 
 export const ContactForm: React.FC = () => {
+  const formEndpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
   const [formData, setFormData] = useState({
     Name: '',
     Number: '',
@@ -16,8 +17,15 @@ export const ContactForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!formEndpoint) {
+      setError('Форма тимчасово недоступна. Налаштуйте зовнішній endpoint для відправки.');
+      return;
+    }
+
     try {
-      const response = await fetch('/api/sendForm', {
+      setError(null);
+
+      const response = await fetch(formEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -25,11 +33,10 @@ export const ContactForm: React.FC = () => {
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
-      if (result.status === 'success') {
+      if (response.ok) {
         setSubmitted(true);
       } else {
-        setError(result.message || 'Щось пішло не так');
+        setError('Не вдалося надіслати форму. Спробуйте пізніше.');
       }
     } catch (err) {
       setError('Не вдалося надіслати форму. Спробуйте пізніше.');
